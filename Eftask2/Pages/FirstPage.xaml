@@ -1,0 +1,23 @@
+﻿<Page x:Class="Eftask2.Pages.FirstPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Eftask2.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="FirstPage">
+
+    <Grid Background="AliceBlue">
+        <StackPanel Background="AliceBlue" Height="400" Width="500">
+            <Button Name="bookbutton"  Foreground ="Black" Height="50"   Width="120" Click="bookbutton_Click">Book</Button>
+            <Button Name="Authorbutton" Foreground ="Black" Height="50"  Width="120" Click="Authorbutton_Click">Author</Button>
+            <Button Name="CategoryButton" Foreground ="Black" Height="50"   Width="120" Click="CategoryButton_Click">Category</Button>
+            <Button Name="Libbutton" Foreground ="Black" Height="50"   Width="120" Click="Libbutton_Click">Librarian</Button>
+            <Button Name="StudentButton" Foreground ="Black" Height="50"   Width="120" Click="StudentButton_Click">Student</Button>
+            <Button Name="Scardbutton" Foreground ="Black" Height="50"   Width="120" Click="Scardbutton_Click">S__card</Button>
+            <Button Name="AdminButton" Foreground ="Black" Height="50"   Width="120" Click="AdminButton_Click">Admin</Button>
+            <Button Background="Black" Foreground="AliceBlue" Content="Back" Width="157" Height="34" FontSize="17" BorderBrush="Transparent"  Name="Back" Click="Back_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>
