@@ -13,11 +13,23 @@
             <RowDefinition Height="5*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <ListView Grid.Row="0" x:Name="booksview" ItemsSource="{Binding Books}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="Pages" Width="160" DisplayMemberBinding="{Binding Pages}"/>
+                    <GridViewColumn Header="YearPress" Width="121" DisplayMemberBinding="{Binding YearPress}"/>
+                    <GridViewColumn Header="IdCategory" Width="125" DisplayMemberBinding="{Binding IdCategory}"/>
+                    <GridViewColumn Header="IdAuthor" Width="125" DisplayMemberBinding="{Binding IdAuthor}"/>
+                    <GridViewColumn Header="Quantity" Width="125" DisplayMemberBinding="{Binding Quantity}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
         <StackPanel  Orientation="Horizontal" Grid.Row="1">
-            <Button Name="Read" Margin="10 15 45 5" Height="60" Width="110" Background="Black" Foreground="White">Read</Button>
-            <Button Name="Update" Margin="10 15 45 5" Height="60" Width="110" Background="Black" Foreground="White">Update</Button>
-            <Button Name="Add" Margin="10 15 45 5" Height="60" Width="110" Background="Black" Foreground="White">Add</Button>
-            <Button Name="Delete"  Margin="10 15 45 5" Height="60" Width="110" Background="Black" Foreground="White">Delete</Button>
+            <Button Name="Read" Margin="10 15 45 5" Height="60" Width="110" Background="Black" Foreground="White" Click="Read_Click">Read</Button>
+            <Button Name="Update" Margin="10 15 45 5" Height="60" Width="110" Background="Black" Foreground="White" Click="Update_Click">Update</Button>
+            <Button Name="Add" Margin="10 15 45 5" Height="60" Width="110" Background="Black" Foreground="White" Click="Add_Click">Add</Button>
+            <Button Name="Delete"  Margin="10 15 45 5" Height="60" Width="110" Background="Black" Foreground="White" Click="Delete_Click">Delete</Button>
             <Button Name="Back" Margin="10 15 45 5" Height="60" Width="110" Background="Black" Foreground="White" Click="Back_Click">Back</Button>
         </StackPanel>
     </Grid>
