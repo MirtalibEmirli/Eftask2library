@@ -27,7 +27,17 @@ namespace Eftask2.Pages
 
         private void bookbutton_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+
             NavigationService.Navigate(new BookPage());
+            }
+            catch (Exception ex) 
+            {
+
+            MessageBox.Show(ex.Message);
+
+            }
         }
 
         private void Authorbutton_Click(object sender, RoutedEventArgs e)

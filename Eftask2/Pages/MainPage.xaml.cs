@@ -65,17 +65,27 @@ namespace Eftask2.Pages
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            if (_username == _admin?.userName && _pass == _admin?.Password)
-            {
-                MessageBox.Show("Login successful","Information",MessageBoxButton.OK,MessageBoxImage.Information);
-                NavigationService.Navigate(new FirstPage());
 
-            }
-            else
+            try
             {
-                MessageBox.Show("Login Invalid");
+                if (_username == _admin?.userName && _pass == _admin?.Password)
+                {
+                    MessageBox.Show("Login successful", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                    NavigationService.Navigate(new FirstPage());
 
+                }
+                else
+                {
+                    MessageBox.Show("Login Invalid");
+
+                }
             }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

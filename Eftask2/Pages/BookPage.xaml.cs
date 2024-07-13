@@ -40,7 +40,7 @@ public partial class BookPage : Page, INotifyPropertyChanged
         DataContext = this;
         dbcontext = new LibraryDbcontext();
         Books = new ObservableCollection<Book >(dbcontext.Books.ToList());
-        
+
     }
 
 
@@ -60,14 +60,43 @@ public partial class BookPage : Page, INotifyPropertyChanged
 
     private void Read_Click(object sender, RoutedEventArgs e)
     {
+
+        try
+        {
         Books = new ObservableCollection<Book>(dbcontext.Books.ToList());
+
+        }
+         
+        catch (Exception ex)
+        {
+
+            MessageBox.Show(ex.Message);
+        }
 
     }
     //////////////////////////
 
     private void Update_Click(object sender, RoutedEventArgs e)
     {
+        try
+        {
+            if (booksview.SelectedItem != null)
+            {
+                Book b = new Book();
+                var c = booksview.SelectedItem;
+                b = c as Book;
+                if (b is not null)
+                {
+                    NavigationService.Navigate(new UpdateBookPage(b));
+                }
+            }
+        }
+        catch (Exception ex)
+        {
 
+            MessageBox.Show(ex.Message);
+        }
+      
     }
 
     private void Add_Click(object sender, RoutedEventArgs e)
@@ -77,16 +106,36 @@ public partial class BookPage : Page, INotifyPropertyChanged
 
     private void Delete_Click(object sender, RoutedEventArgs e)
     {
-        foreach (var item in Books)
-        {
-            if (item == booksview.SelectedItem)
-            {
-                Books.Remove(item);
-                dbcontext.Books.Remove(item);
-                dbcontext.SaveChanges();
-                return;
-            }
 
+        try
+        {
+            foreach (var item in Books)
+            {
+                if (item == booksview.SelectedItem)
+                {
+                    var a = MessageBox.Show("Do you want to delete?", "!!!!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                    if (a == MessageBoxResult.Yes)
+                    {
+                        Books.Remove(item);
+                        dbcontext.Books.Remove(item);
+                        dbcontext.SaveChanges();
+                        return;
+                    }
+
+                    else
+                    {
+                        return;
+                    }
+
+                }
+
+            }
         }
+        catch (Exception ex)
+        {
+
+            MessageBox.Show(ex.Message);
+        }
+       
     }
 }

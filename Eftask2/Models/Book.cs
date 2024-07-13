@@ -18,5 +18,20 @@ namespace Eftask2.Models
         public Category Category { get; set; }
         public List<S_Cards> S_Cards { get; set; }
 
+
+        public Book(Book book)
+        {
+           
+            YearPress = book.YearPress;
+            S_Cards = book.S_Cards;
+            IdCategory = book.IdCategory;
+            Category = book.Category ;
+            Author = book.Author ;
+            Pages = book.Pages;
+            Quantity = book.Quantity;
+            Name = book.Name  ;
+            IdAuthor = book.IdAuthor;
+        }
+        public Book() { }
     }
 }

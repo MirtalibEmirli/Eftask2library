@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Eftask2.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="BookPage">
+      Title="BookPage" Loaded="Read_Click">
 
     <Grid Background="AliceBlue">
         <Grid.RowDefinitions>
@@ -16,7 +16,7 @@
         <ListView Grid.Row="0" x:Name="booksview" ItemsSource="{Binding Books}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="Name" Width="110" DisplayMemberBinding="{Binding Name}"/>
                     <GridViewColumn Header="Pages" Width="160" DisplayMemberBinding="{Binding Pages}"/>
                     <GridViewColumn Header="YearPress" Width="121" DisplayMemberBinding="{Binding YearPress}"/>
                     <GridViewColumn Header="IdCategory" Width="125" DisplayMemberBinding="{Binding IdCategory}"/>
