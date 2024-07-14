@@ -101,7 +101,7 @@ public partial class BookPage : Page, INotifyPropertyChanged
 
     private void Add_Click(object sender, RoutedEventArgs e)
     {
-
+        NavigationService.Navigate(new AddBookPage());
     }
 
     private void Delete_Click(object sender, RoutedEventArgs e)
