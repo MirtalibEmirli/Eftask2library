@@ -55,8 +55,7 @@ namespace Eftask2.Pages
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if(P1.Name!= Orgnal.Name || P1.Pages != Orgnal.Pages
-                ||P1.IdAuthor!=Orgnal.IdAuthor||
-                P1.IdCategory!=P1.IdCategory||
+                ||
                 P1.Quantity!=Orgnal.Quantity
                 ||Orgnal.YearPress!=P1.YearPress
                 )

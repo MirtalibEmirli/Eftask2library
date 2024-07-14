@@ -14,7 +14,7 @@
         <StackPanel Height="430" HorizontalAlignment="Center" VerticalAlignment="Center">
 
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">
-                <Label Content="Add Product" FontSize="35" Foreground="Black" FontWeight="DemiBold" />
+                <Label Content="Update Book" FontSize="35" Foreground="Black" FontWeight="DemiBold" />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="10">
@@ -38,11 +38,11 @@
             </StackPanel>
   <StackPanel Orientation="Horizontal" Margin="10">
                 <Label Foreground="Black" Content="AuthorID     " Width="150" />
-                <TextBox  Width="400" Text="{Binding P1.IdAuthor, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox  Width="400" IsReadOnly="True" Text="{Binding P1.IdAuthor, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10">
                 <Label Foreground="Black" Content="CategoryID     " Width="150" />
-                <TextBox  Width="400" Text="{Binding P1.IdCategory, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox  Width="400"   IsReadOnly="True"  Text="{Binding P1.IdCategory, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
 
 
