@@ -19,66 +19,68 @@ using System.Windows.Shapes;
 
 namespace Eftask2.Pages
 {
-    
-    public partial class UpdateBookPage : Page,INotifyPropertyChanged
+    /// <summary>
+    /// Interaction logic for UpdateAuthorPage.xaml
+    /// </summary>
+    public partial class UpdateAuthorPage : Page,INotifyPropertyChanged
     {
         LibraryDbcontext dbcontext;
-        public Book p1 { get; set; }
-        public Book P1 { 
-            get { return p1; }
-            set { p1 = value; OnPropertyChanged(); } }
-        
-        public Book orgnal { get; set; }
-        public Book Orgnal
-        { 
-            get { return orgnal; }
-            set { orgnal = value; OnPropertyChanged(); } }
-
-
-        public UpdateBookPage()
+        public Author p1 { get; set; }
+        public Author P1
         {
-            InitializeComponent();
-            DataContext = this;
-            dbcontext = new LibraryDbcontext();
+            get { return p1; }
+            set { p1 = value; OnPropertyChanged(); }
         }
 
+        public Author orgnal { get; set; }
+        public Author Orgnal
+        {
+            get { return orgnal; }
+            set { orgnal = value; OnPropertyChanged(); }
+        }
 
-        public UpdateBookPage(Book b)
+        public UpdateAuthorPage()
+        {
+            InitializeComponent();
+            DataContext = this;
+        }
+        public UpdateAuthorPage(Author b)
         {
             dbcontext = new LibraryDbcontext();
             InitializeComponent();
             DataContext = this;
-            P1 = new Book(b);
+            P1 = new Author
+            {
+                Name=b.Name,
+                Id=b.Id,
+                LastName=b.LastName
+            };
             Orgnal = b;
-            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if(P1.Name!= Orgnal.Name || P1.Pages != Orgnal.Pages
-                ||
-                P1.Quantity!=Orgnal.Quantity
-                ||Orgnal.YearPress!=P1.YearPress
-                )
-            {
-                dbcontext.Books.Remove(orgnal);
-                dbcontext.Books.Add(P1);
-                dbcontext.SaveChanges();
             NavigationService.GoBack();
-            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            if (P1.Name != Orgnal.Name || P1.LastName != Orgnal.LastName )
+            {
+                orgnal.LastName = P1.LastName;
+                orgnal.Name = P1.Name;
+                dbcontext.Authors.Update(orgnal);
+                dbcontext.SaveChanges();
+                NavigationService.GoBack();
 
+            }
         }
+
         public event PropertyChangedEventHandler? PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
     }
 }

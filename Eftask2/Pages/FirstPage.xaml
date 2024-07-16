@@ -16,7 +16,6 @@
             <Button Name="Libbutton" Foreground ="Black" Height="50"   Width="120" Click="Libbutton_Click">Librarian</Button>
             <Button Name="StudentButton" Foreground ="Black" Height="50"   Width="120" Click="StudentButton_Click">Student</Button>
             <Button Name="Scardbutton" Foreground ="Black" Height="50"   Width="120" Click="Scardbutton_Click">S__card</Button>
-            <Button Name="AdminButton" Foreground ="Black" Height="50"   Width="120" Click="AdminButton_Click">Admin</Button>
             <Button Background="Black" Foreground="AliceBlue" Content="Back" Width="157" Height="34" FontSize="17" BorderBrush="Transparent"  Name="Back" Click="Back_Click"/>
         </StackPanel>
     </Grid>

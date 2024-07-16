@@ -42,12 +42,22 @@ namespace Eftask2.Pages
 
         private void Authorbutton_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
 
+                NavigationService.Navigate(new AuthorPage());
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+
+            }
         }
 
         private void CategoryButton_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new CategoryPage());
         }
 
         private void Libbutton_Click(object sender, RoutedEventArgs e)
@@ -61,11 +71,6 @@ namespace Eftask2.Pages
         }
 
         private void Scardbutton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void AdminButton_Click(object sender, RoutedEventArgs e)
         {
 
         }

@@ -22,38 +22,32 @@ using static System.Reflection.Metadata.BlobBuilder;
 namespace Eftask2.Pages
 {
     /// <summary>
-    /// Interaction logic for AuthorPage.xaml
+    /// Interaction logic for CategoryPage.xaml
     /// </summary>
-    public partial class AuthorPage : Page,INotifyPropertyChanged
+    public partial class CategoryPage : Page,INotifyPropertyChanged
     {
 
         LibraryDbcontext dbcontext;
+        private ObservableCollection<Category> categoires { get; set; }
+        public ObservableCollection<Category> Categories
+        {
+            get { return categoires; }
+            set { categoires = value; OnPropertyChanged(); }
 
+        }
         public event PropertyChangedEventHandler? PropertyChanged;
+
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
-        private ObservableCollection<Author> authors { get; set; }
-        public ObservableCollection<Author> Authors
-        {
-            get { return authors; }
-            set { authors = value; OnPropertyChanged(); }
-
-        }
-        /// <Costructor>
-        public AuthorPage()
+        public CategoryPage()
         {
             InitializeComponent();
             DataContext = this;
             dbcontext = new LibraryDbcontext();
-           Authors = new ObservableCollection<Author>(dbcontext.Authors.ToList());
-           
-
+            Categories = new ObservableCollection<Category>(dbcontext.Categories.ToList());
         }
-        /// </summary>
-
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
@@ -64,15 +58,15 @@ namespace Eftask2.Pages
         {
             try
             {
-                foreach (var item in Authors)
+                foreach (var item in Categories)
                 {
-                    if (item == authorsview.SelectedItem)
+                    if (item == categoryview.SelectedItem)
                     {
                         var a = MessageBox.Show("Do you want to delete?", "!!!!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
                         if (a == MessageBoxResult.Yes)
                         {
-                            Authors.Remove(item);
-                            dbcontext.Authors.Remove(item);
+                            Categories.Remove(item);
+                            dbcontext.Categories.Remove(item);
                             dbcontext.SaveChanges();
                             return;
                         }
@@ -91,40 +85,41 @@ namespace Eftask2.Pages
 
                 MessageBox.Show(ex.Message);
             }
+
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AddAuthorPage());
+            NavigationService.Navigate(new AddCategoryPage());
         }
 
         private void Update_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                if (authorsview.SelectedItem != null)
+
+                if (categoryview.SelectedItem != null)
                 {
-                    Author b = new Author();
-                    var c = authorsview.SelectedItem;
-                    b = c as Author;
+                    Category b = new Category();
+                    var c = categoryview.SelectedItem;
+                    b = c as Category;
                     if (b is not null)
                     {
-                        NavigationService.Navigate(new UpdateAuthorPage(b)); 
+                        NavigationService.Navigate(new UpdateCategoryPage(b));
                     }
                 }
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
-            }
+             }
         }
 
         private void Read_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                Authors = new ObservableCollection<Author>(dbcontext.Authors.ToList());
+                Categories = new ObservableCollection<Category>(dbcontext.Categories.ToList());
 
             }
 
@@ -133,6 +128,7 @@ namespace Eftask2.Pages
 
                 MessageBox.Show(ex.Message);
             }
+
         }
     }
 }
