@@ -29,6 +29,10 @@ namespace Eftask2.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Author>().HasData(
+                   new Author { Id = 14, Name = "Ahmet Ümit" ,LastName="Suleyman" },
+        new Author { Id = 15, Name = "Elif Şafak", LastName = "Suleyman" }
+                );
             modelBuilder.Entity<Author>()
                 .HasMany(e => e.Books)
                 .WithOne(b => b.Author)

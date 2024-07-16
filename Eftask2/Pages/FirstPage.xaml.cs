@@ -62,7 +62,7 @@ namespace Eftask2.Pages
 
         private void Libbutton_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new LibrarianPage());
         }
 
         private void StudentButton_Click(object sender, RoutedEventArgs e)
