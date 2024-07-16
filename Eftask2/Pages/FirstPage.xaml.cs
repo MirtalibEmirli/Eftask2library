@@ -67,12 +67,12 @@ namespace Eftask2.Pages
 
         private void StudentButton_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new StudentPage());
         }
 
         private void Scardbutton_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new ScardPage());
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)

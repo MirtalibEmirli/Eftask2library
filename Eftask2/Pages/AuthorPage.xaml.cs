@@ -52,7 +52,7 @@ namespace Eftask2.Pages
            
 
         }
-        /// </summary>
+ 
 
 
         private void Back_Click(object sender, RoutedEventArgs e)
