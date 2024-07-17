@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace Eftask2.Migrations
 {
     /// <inheritdoc />
@@ -11,6 +13,20 @@ namespace Eftask2.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Admins",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    userName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Admins", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Authors",
                 columns: table => new
@@ -106,8 +122,8 @@ namespace Eftask2.Migrations
                     Id_Student = table.Column<int>(type: "int", nullable: false),
                     Id_Book = table.Column<int>(type: "int", nullable: false),
                     Id_Lib = table.Column<int>(type: "int", nullable: false),
-                    DateIn = table.Column<TimeOnly>(type: "time", nullable: false),
-                    DateOut = table.Column<TimeOnly>(type: "time", nullable: false)
+                    DateIn = table.Column<DateOnly>(type: "date", nullable: false),
+                    DateOut = table.Column<DateOnly>(type: "date", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -128,6 +144,15 @@ namespace Eftask2.Migrations
                         column: x => x.Id_Student,
                         principalTable: "Students",
                         principalColumn: "Id");
+                });
+
+            migrationBuilder.InsertData(
+                table: "Authors",
+                columns: new[] { "Id", "LastName", "Name" },
+                values: new object[,]
+                {
+                    { 14, "Suleyman", "Ahmet Ümit" },
+                    { 15, "Suleyman", "Elif Şafak" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -159,6 +184,9 @@ namespace Eftask2.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Admins");
+
             migrationBuilder.DropTable(
                 name: "S_Cards");
 

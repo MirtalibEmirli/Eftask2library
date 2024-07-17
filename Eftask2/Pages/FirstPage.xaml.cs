@@ -72,7 +72,16 @@ namespace Eftask2.Pages
 
         private void Scardbutton_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new ScardPage());
+
+            try
+            {
+                NavigationService.Navigate(new ScardPage());
+
+            }
+           catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message+ex.InnerException);
+            }
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)

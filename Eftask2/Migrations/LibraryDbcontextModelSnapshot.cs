@@ -160,11 +160,11 @@ namespace Eftask2.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<TimeOnly>("DateIn")
-                        .HasColumnType("time");
+                    b.Property<DateOnly>("DateIn")
+                        .HasColumnType("date");
 
-                    b.Property<TimeOnly>("DateOut")
-                        .HasColumnType("time");
+                    b.Property<DateOnly>("DateOut")
+                        .HasColumnType("date");
 
                     b.Property<int>("Id_Book")
                         .HasColumnType("int");

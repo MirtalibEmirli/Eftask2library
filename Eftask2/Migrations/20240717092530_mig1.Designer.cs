@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Eftask2.Migrations
 {
     [DbContext(typeof(LibraryDbcontext))]
-    [Migration("20240712110837_mig1")]
+    [Migration("20240717092530_mig1")]
     partial class mig1
     {
         /// <inheritdoc />
@@ -24,6 +24,27 @@ namespace Eftask2.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("Eftask2.Models.Admin", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("userName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Admins");
+                });
 
             modelBuilder.Entity("Eftask2.Models.Author", b =>
                 {
@@ -44,6 +65,20 @@ namespace Eftask2.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Authors");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 14,
+                            LastName = "Suleyman",
+                            Name = "Ahmet Ümit"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            LastName = "Suleyman",
+                            Name = "Elif Şafak"
+                        });
                 });
 
             modelBuilder.Entity("Eftask2.Models.Book", b =>
@@ -128,11 +163,11 @@ namespace Eftask2.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<TimeOnly>("DateIn")
-                        .HasColumnType("time");
+                    b.Property<DateOnly>("DateIn")
+                        .HasColumnType("date");
 
-                    b.Property<TimeOnly>("DateOut")
-                        .HasColumnType("time");
+                    b.Property<DateOnly>("DateOut")
+                        .HasColumnType("date");
 
                     b.Property<int>("Id_Book")
                         .HasColumnType("int");
