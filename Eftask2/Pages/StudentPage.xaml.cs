@@ -85,7 +85,7 @@ public partial class StudentPage : Page, INotifyPropertyChanged
 
     private void Add_Click(object sender, RoutedEventArgs e)
     {
-
+        NavigationService.Navigate(new AddStudnetPage());
     }
 
     private void Delete_Click(object sender, RoutedEventArgs e)
@@ -99,8 +99,8 @@ public partial class StudentPage : Page, INotifyPropertyChanged
                     var a = MessageBox.Show("Do you want to delete?", "!!!!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
                     if (a == MessageBoxResult.Yes)
                     {
-                        Students.Remove(item);
                         dbcontext.Students.Remove(item);
+                        Students= new ObservableCollection<Student>(dbcontext.Students.ToList());
                         dbcontext.SaveChanges();
                         return;
                     }
@@ -117,7 +117,7 @@ public partial class StudentPage : Page, INotifyPropertyChanged
         catch (Exception ex)
         {
 
-            MessageBox.Show(ex.Message);
+            MessageBox.Show("I see the errorss => "+ ex.Message);
         }
     }
 
