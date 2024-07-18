@@ -8,8 +8,15 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="FirstPage">
 
-    <Grid Background="AliceBlue">
-        <StackPanel Background="AliceBlue" Height="400" Width="500">
+    <Grid >
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                <GradientStop Color="Aqua" Offset="0"/>
+                <GradientStop Color="DarkGray" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <StackPanel   Height="400" Width="500">
+            
             <Button Name="bookbutton"  Foreground ="Black" Height="50"   Width="120" Click="bookbutton_Click">Book</Button>
             <Button Name="Authorbutton" Foreground ="Black" Height="50"  Width="120" Click="Authorbutton_Click">Author</Button>
             <Button Name="CategoryButton" Foreground ="Black" Height="50"   Width="120" Click="CategoryButton_Click">Category</Button>

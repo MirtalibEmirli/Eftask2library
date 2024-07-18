@@ -10,7 +10,13 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="UpdateBookPage">
 
-    <Grid Background="AliceBlue" > 
+    <Grid  >
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                <GradientStop Color="Aqua" Offset="0"/>
+                <GradientStop Color="DarkGray" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <StackPanel Height="430" HorizontalAlignment="Center" VerticalAlignment="Center">
 
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">
