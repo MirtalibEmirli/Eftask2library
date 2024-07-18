@@ -14,21 +14,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0" Margin="10" BorderThickness="2" Opacity="0.95">
-            <Border.BorderBrush>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#462AD8" Offset="0"/>
-                    <GradientStop Color="#DA34AE" Offset="0.75"/>
-                    <GradientStop Color="#8A16C1" Offset="1"/>
-                </LinearGradientBrush>
-            </Border.BorderBrush>
-            <Border.Background>
-                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-                    <GradientStop Color="Aqua" Offset="0"/>
-                    <GradientStop Color="DarkGray" Offset="1"/>
-                </LinearGradientBrush>
-            </Border.Background>
-
+        
             <ListView x:Name="sview" ItemsSource="{Binding S_cards}">
                 <ListView.View>
                     <GridView>
@@ -40,7 +26,7 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-        </Border>
+        
 
         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" Margin="10">
             <Button Name="Read" Margin="10" Height="60" Width="110" Background="Black" Foreground="White" Click="Read_Click">Read</Button>
