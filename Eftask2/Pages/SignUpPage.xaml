@@ -23,34 +23,34 @@
 
             <StackPanel Orientation="Horizontal" Margin="10">
                 <Label Content="Name" Width="150" />
-                <TextBox Width="400" Text="{Binding Student.FirstName, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox x:Name="name" Width="400"  />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10">
                 <Label Content="LastName" Width="150" />
-                <TextBox Width="400" Text="{Binding Student.LastName, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox x:Name="Lastname" Width="400"  />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10">
                 <Label Content="Term" Width="150" />
-                <TextBox Width="400" Text="{Binding Student.Term, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox x:Name="Term" Width="400"  />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10">
                 <Label Content="Email" Width="150" />
-                <TextBox Width="400" Text="{Binding Student.Mail, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Width="400" Name="Mail" />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="10">
                 <Label Content="Code from us" Width="150" />
-                <TextBox Width="400" Text="{Binding Codemail, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox x:Name="codeus" Width="400"  />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="10">
-                <Label Content="Password" Width="150" />
-                <TextBox Width="400" Text="{Binding Student.Password, UpdateSourceTrigger=PropertyChanged}"/>
+                <Label  Content="Password" Width="150" />
+                <TextBox x:Name="pass" Width="400"  />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-                <Button Foreground="AliceBlue" Background="Transparent" Width="150" Margin="10" Content="Register" Command="{Binding RegisterCommand}" CommandParameter="{Binding ElementName=page}"/>
-                <Button Foreground="AliceBlue" Background="Transparent" Content="Get Code" Command="{Binding GetCode}"/>
+                <Button Foreground="AliceBlue" Background="Transparent" Width="150" Margin="10" Content="Register" Click="Button_Click_1"    />
+                <Button Foreground="AliceBlue" Background="Transparent" Content="Get Code" Click="Button_Click_2"  />
                 <Button Foreground="AliceBlue" Background="Transparent" Width="150" Margin="10" Content="Back" Click="Button_Click"/>
             </StackPanel>
 

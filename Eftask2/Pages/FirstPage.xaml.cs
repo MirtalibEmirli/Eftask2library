@@ -67,7 +67,16 @@ namespace Eftask2.Pages
 
         private void StudentButton_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+
             NavigationService.Navigate(new StudentPage());
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void Scardbutton_Click(object sender, RoutedEventArgs e)

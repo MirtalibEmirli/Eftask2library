@@ -39,90 +39,102 @@ namespace Eftask2.Pages
             set { codemail = value; OnPropertyChanged(); }
         }
 
-        public ICommand RegisterCommand { get; }
-        public ICommand GetCode { get; set; }
-        public ICommand BackCommand { get; set; }
 
-        private static readonly Regex EmailRegex = new Regex(@"^[^\s@]+@[^\s@]+\.[^\s@]+$", RegexOptions.Compiled);
+
 
         public SignUpPage()
         {
             dbcontext = new LibraryDbcontext();
             InitializeComponent();
             Student = new Student();
-            msg = random.Next(200, 999);  
-            RegisterCommand = new RelayCommand(RegisterCommandExecute, IsRegisterCommand);
-            GetCode = new RelayCommand(mailing, IsGetCodeCommand);
+            msg = random.Next(200, 999);
+
         }
 
-        public bool IsGetCodeCommand(object obj)
-        {
-            return !string.IsNullOrWhiteSpace(Student?.Mail) && EmailRegex.IsMatch(Student.Mail);
-        }
+           
 
-        public bool IsRegisterCommand(object? obj)
-        {
-            return Student != null &&
-                   !string.IsNullOrWhiteSpace(Student.FirstName) &&
-                   !string.IsNullOrWhiteSpace(Student.Mail) &&
-                   Codemail == msg &&
-                   !string.IsNullOrWhiteSpace(Student.Password);
-        }
+          public bool IsRegisterCommand( )
+          {
+              return Student != null &&
+                     !string.IsNullOrWhiteSpace(Student.FirstName) &&
+                     !string.IsNullOrWhiteSpace(Student.Mail) &&
+                     Codemail == msg &&
+                     !string.IsNullOrWhiteSpace(Student.Password);
+          } 
 
-        public void RegisterCommandExecute(object obj)
-        {
-            try
-            {
-                if (Student != null)
-                {
-                    dbcontext.Students.Add(Student);
-                    dbcontext.SaveChanges();
-                    Student = new Student();
-                    if (obj is Page page)
-                    {
-                        page.NavigationService.GoBack();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
 
-        private void mailing(object? obj)
-        {
-            try
-            {
-                MessageBox.Show(msg.ToString());
-                string senderEmail = "mirtalibemirli498@gmail.com";
-                string senderPassword = "aytndmgzqcukvmds";
-                string recipientEmail = Student.Mail;
-                string smtpServer = "smtp.gmail.com";
-                int smtpPort = 587;
-
-                using (SmtpClient smtpClient = new SmtpClient(smtpServer, smtpPort))
-                {
-                    smtpClient.EnableSsl = true;
-                    smtpClient.Credentials = new NetworkCredential(senderEmail, senderPassword);
-
-                    using (MailMessage mailMessage = new MailMessage(senderEmail, recipientEmail))
-                    {
-                        mailMessage.Subject = "Verification Code";
-                        mailMessage.Body = $"Your Code is {msg}";
-                        smtpClient.Send(mailMessage);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (IsRegisterCommand())
+                {
+                    _ = int.TryParse(Term.Text, out int t);
+                    if (Student != null)
+                    {
+                        Student = new Student
+                        {
+                            FirstName = name.Text,
+                            LastName = Lastname.Text,
+                            Term = t,
+                            Mail = Mail.Text,
+                            Password = pass.Text
+
+                        };
+                        dbcontext.Students.Add(Student);
+                        dbcontext.SaveChanges();
+                        Student = new Student();
+
+
+                        NavigationService.GoBack();
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private static readonly Regex EmailRegex = new Regex(@"^[^\s@]+@[^\s@]+\.[^\s@]+$", RegexOptions.Compiled);
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(Mail.Text   )&& EmailRegex.IsMatch(Mail.Text)) ;
+                {
+                    MessageBox.Show(msg.ToString());
+                    string senderEmail = "mirtalibemirli498@gmail.com";
+                    string senderPassword = "aytndmgzqcukvmds";
+                    string recipientEmail = Mail.Text;
+                    string smtpServer = "smtp.gmail.com";
+                    int smtpPort = 587;
+
+                    using (SmtpClient smtpClient = new SmtpClient(smtpServer, smtpPort))
+                    {
+                        smtpClient.EnableSsl = true;
+                        smtpClient.Credentials = new NetworkCredential(senderEmail, senderPassword);
+
+                        using (MailMessage mailMessage = new MailMessage(senderEmail, recipientEmail))
+                        {
+                            mailMessage.Subject = "Verification Code";
+                            mailMessage.Body = $"Your Code is {msg}";
+                            smtpClient.Send(mailMessage);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
