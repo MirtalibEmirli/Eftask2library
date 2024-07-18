@@ -9,6 +9,7 @@
       Title="UserEnterPage">
 
     <Grid>
+        
         <Border >
             <Border 
                 BorderThickness="2"
@@ -30,7 +31,12 @@
                 </Border.Background>
             </Border>
 
-
-        </Border> 
+            
+        </Border>
+        <StackPanel Height="150" Width="150">
+            <Button Background="Transparent" Margin="10" Height="50" x:Name="SignIn" Content="SignIn"/>
+            <Button Background="Transparent" Margin="10" Height="50" x:Name="SignUp" Content="SignUp"/>
+            
+        </StackPanel>
     </Grid>
 </Page>

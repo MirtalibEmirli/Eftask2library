@@ -35,9 +35,9 @@
 
 
         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" Margin="10">
-            <Button Name="Read" Margin="10" Height="60" Width="110" Background="Black" Foreground="White" Click="Read_Click">Read</Button>
-            <Button Name="Delete" Margin="10" Height="60" Width="110" Background="Black" Foreground="White" Click="Delete_Click">Delete</Button>
-            <Button Name="Back" Margin="10" Height="60" Width="110" Background="Black" Foreground="White" Click="Back_Click">Back</Button>
+            <Button Name="Read" Margin="10" Height="60" Width="110" Background="Transparent" Foreground="Black" Click="Read_Click">Read</Button>
+            <Button Name="Delete" Margin="10" Height="60" Width="110" Background="Transparent" Foreground="Black" Click="Delete_Click">Delete</Button>
+            <Button Name="Back" Margin="10" Height="60" Width="110" Background="Transparent" Foreground="Black" Click="Back_Click">Back</Button>
         </StackPanel>
     </Grid>
 </Page>
