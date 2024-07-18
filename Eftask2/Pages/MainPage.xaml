@@ -9,6 +9,7 @@
       Title="Crud" >
 
     <Grid Background="AliceBlue">
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="*"/>
@@ -17,8 +18,53 @@
         <StackPanel Height="60" Grid.Column="0" Orientation="Horizontal" Grid.ColumnSpan="2" Margin="1,26,399,414">
             <Label Width="180" Foreground="AliceBlue" FontSize="17" Content="Contact 0515880319" Height="46" VerticalAlignment="Top" />
         </StackPanel>
+        <Border >
+            <Border 
+           BorderThickness="2"
+           Opacity="0.95"  >
 
+                <Border.BorderBrush>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#462AD8" Offset="0"/>
+                        <GradientStop Color="#DA34AE" Offset="0.75"/>
+                        <GradientStop Color="#8A16C1" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                        <GradientStop Color="Aqua" Offset="0"/>
+                        <GradientStop Color="DarkGray" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+
+
+        </Border>
         <Grid Grid.Column="1">
+            <Border >
+                <Border 
+           BorderThickness="2"
+           Opacity="0.95"  >
+
+                    <Border.BorderBrush>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#462AD8" Offset="0"/>
+                            <GradientStop Color="#DA34AE" Offset="0.75"/>
+                            <GradientStop Color="#8A16C1" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.BorderBrush>
+
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                            <GradientStop Color="Aqua" Offset="0"/>
+                            <GradientStop Color="DarkGray" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                </Border>
+
+
+            </Border>
             <StackPanel Margin="108,1,0,-1">
                 <Grid Height="370" Width="280">
                     <Grid.RowDefinitions>

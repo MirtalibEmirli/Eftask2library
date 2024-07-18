@@ -8,12 +8,34 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="CategoryPage" Loaded="Read_Click">
 
-    <Grid Background="AliceBlue">
+    <Grid  >
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                <GradientStop Color="Aqua" Offset="0"/>
+                <GradientStop Color="DarkGray" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="5*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <ListView Grid.Row="0" x:Name="categoryview" ItemsSource="{Binding Categories}">
+        <Border Grid.Row="0" Margin="10" BorderThickness="2" Opacity="0.95">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#462AD8" Offset="0"/>
+                    <GradientStop Color="#DA34AE" Offset="0.75"/>
+                    <GradientStop Color="#8A16C1" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                    <GradientStop Color="Aqua" Offset="0"/>
+                    <GradientStop Color="DarkGray" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            
+            <ListView Grid.Row="0" x:Name="categoryview" ItemsSource="{Binding Categories}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" Width="110" DisplayMemberBinding="{Binding Name}"/>
@@ -21,6 +43,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        </Border>
         <StackPanel  Orientation="Horizontal" Grid.Row="1">
             <Button Name="Read" Margin="10 15 45 5" Height="60" Width="110" Background="Black" Foreground="White" Click="Read_Click">Read</Button>
             <Button Name="Update" Margin="10 15 45 5" Height="60" Width="110" Background="Black" Foreground="White" Click="Update_Click">Update</Button>

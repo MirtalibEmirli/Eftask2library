@@ -10,30 +10,42 @@
 
     <Grid Background="AliceBlue">
         <Grid.RowDefinitions>
-            <RowDefinition Height="5*"/>
-            <RowDefinition/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <ListView Grid.Row="0" x:Name="sview" ItemsSource="{Binding S_cards}">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="ID" Width="110" DisplayMemberBinding="{Binding Id}"/>
-                    <GridViewColumn Header="Id_Book" Width="110" DisplayMemberBinding="{Binding Id_Book}"/>
-                    <GridViewColumn Header="Id_Lib" Width="160" DisplayMemberBinding="{Binding Id_Lib}"/>
-                    <GridViewColumn Header="DateIn" Width="110" DisplayMemberBinding="{Binding DateIn}"/>
-                    <GridViewColumn Header="DateOut" Width="110" DisplayMemberBinding="{Binding DateOut}"/>
 
+        <Border Grid.Row="0" Margin="10" BorderThickness="2" Opacity="0.95">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#462AD8" Offset="0"/>
+                    <GradientStop Color="#DA34AE" Offset="0.75"/>
+                    <GradientStop Color="#8A16C1" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                    <GradientStop Color="Aqua" Offset="0"/>
+                    <GradientStop Color="DarkGray" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
 
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <StackPanel  Orientation="Horizontal" Grid.Row="1">
-            <Button Name="Read" Margin="10 15 45 5" Height="60" Width="110" Background="Black" Foreground="White" Click="Read_Click">Read</Button>
-            <Button Name="Add" Margin="10 15 45 5" Height="60" Width="110" Background="Black" Foreground="White" Click="Add_Click">Add</Button>
-            <Button Name="Delete"  Margin="10 15 45 5" Height="60" Width="110" Background="Black" Foreground="White" Click="Delete_Click">Delete</Button>
-            <Button Name="Back" Margin="10 15 45 5" Height="60" Width="110" Background="Black" Foreground="White" Click="Back_Click">Back</Button>
+            <ListView x:Name="sview" ItemsSource="{Binding S_cards}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="ID" Width="110" DisplayMemberBinding="{Binding Id}"/>
+                        <GridViewColumn Header="Id_Book" Width="110" DisplayMemberBinding="{Binding Id_Book}"/>
+                        <GridViewColumn Header="Id_Lib" Width="160" DisplayMemberBinding="{Binding Id_Lib}"/>
+                        <GridViewColumn Header="DateIn" Width="110" DisplayMemberBinding="{Binding DateIn}"/>
+                        <GridViewColumn Header="DateOut" Width="110" DisplayMemberBinding="{Binding DateOut}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Border>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" Margin="10">
+            <Button Name="Read" Margin="10" Height="60" Width="110" Background="Black" Foreground="White" Click="Read_Click">Read</Button>
+            <Button Name="Delete" Margin="10" Height="60" Width="110" Background="Black" Foreground="White" Click="Delete_Click">Delete</Button>
+            <Button Name="Back" Margin="10" Height="60" Width="110" Background="Black" Foreground="White" Click="Back_Click">Back</Button>
         </StackPanel>
     </Grid>
 </Page>
-
-
-

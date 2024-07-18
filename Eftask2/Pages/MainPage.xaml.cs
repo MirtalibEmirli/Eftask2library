@@ -60,7 +60,7 @@ namespace Eftask2.Pages
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Environment.Exit(0);
+            NavigationService.GoBack();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)

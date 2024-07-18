@@ -7,6 +7,6 @@
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize" Icon="Images/eflogo.png" ShowsNavigationUI="False">
     <NavigationWindow.Content>
-        <Frame x:Name="MainFrame" Source="../Pages/MainPage.xaml" />
+        <Frame x:Name="EnterancePage" Source="../Pages/EnterancePage.xaml" />
     </NavigationWindow.Content>
 </NavigationWindow>

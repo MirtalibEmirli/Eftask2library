@@ -1,4 +1,4 @@
-﻿<Page x:Class="Eftask2.Pages.AddCategoryPage"
+﻿<Page x:Class="Eftask2.Pages.UserEnterPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,14 +6,13 @@
       xmlns:local="clr-namespace:Eftask2.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="AddCategoryPage">
+      Title="UserEnterPage">
 
-
-    <Grid Background="AliceBlue">
+    <Grid>
         <Border >
             <Border 
-    BorderThickness="2"
-    Opacity="0.95"  >
+                BorderThickness="2"
+                Opacity="0.95"  >
 
                 <Border.BorderBrush>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -32,23 +31,6 @@
             </Border>
 
 
-        </Border>
-        <StackPanel Height="430" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">
-                <Label Content="Add Category" FontSize="35" Foreground="Black" FontWeight="DemiBold" />
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal" Margin="10">
-                <Label Foreground="Black" Content="Name" Width="150" />
-                <TextBox x:Name="nametext" Width="400"   />
-            </StackPanel>
-
-            
-
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-                <Button Foreground="Black" Background="Transparent" Width="150" Margin="10" Content="Add" Click="AddButton_Click" />
-                <Button Foreground="Black" Background="Transparent" Width="150" Margin="15" Content="Back" Click="BackButton_Click" />
-            </StackPanel>
-        </StackPanel>
+        </Border> 
     </Grid>
 </Page>
