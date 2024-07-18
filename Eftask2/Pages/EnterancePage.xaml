@@ -33,9 +33,9 @@
             </Border.Background>
 
             <StackPanel Height="300" Grid.Column="1">
-            <Button x:Name="admin" Margin="20" Height="50"  Content ="Admin" Click="admin_Click"/>
-            <Button x:Name="user" Margin="20" Height="50" Content ="User" Click="user_Click"/>
-            <Button x:Name="back" Margin="20" Height="50" Content ="Back" Click="back_Click" />
+            <Button Background="Transparent" x:Name="admin" Margin="20" Height="50"  Content ="Admin" Click="admin_Click"/>
+            <Button  Background="Transparent" x:Name="user" Margin="20" Height="50" Content ="User" Click="user_Click"/>
+            <Button  Background="Transparent" x:Name="back" Margin="20" Height="50" Content ="Back" Click="back_Click" />
 
         </StackPanel>
         </Border>

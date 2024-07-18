@@ -24,5 +24,15 @@ namespace Eftask2.Pages
         {
             InitializeComponent();
         }
+
+        private void SignUp_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new SignUpPage());
+        }
+
+        private void SignIn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

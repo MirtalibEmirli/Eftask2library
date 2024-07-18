@@ -15,9 +15,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Height="60" Grid.Column="0" Orientation="Horizontal" Grid.ColumnSpan="2" Margin="1,26,399,414">
-            <Label Width="180" Foreground="AliceBlue" FontSize="17" Content="Contact 0515880319" Height="46" VerticalAlignment="Top" />
-        </StackPanel>
+        
         <Border >
             <Border 
            BorderThickness="2"
@@ -75,12 +73,12 @@
 
                     <StackPanel Grid.Row="1">
                         <Border  BorderBrush="Transparent" BorderThickness="2" CornerRadius="5" Width="90" Margin="10">
-                            <Label Foreground="White" Background="Black" Height="34" FontSize="16" HorizontalAlignment="Center" Content="UserName"/>
+                            <Label Foreground="Black" Background="Transparent" Height="34" FontSize="16" HorizontalAlignment="Center" Content="UserName"/>
                         </Border>
                         <TextBox FontSize="17" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" Width="222" Height="28" />
 
                         <Border Width="90" CornerRadius="5" BorderBrush="Transparent" BorderThickness="2" Margin="10">
-                            <Label Background="Black" Foreground="AliceBlue" Height="34" FontSize="17" HorizontalAlignment="Center" Content="Password"/>
+                            <Label Background="Transparent" Foreground="Black" Height="34" FontSize="17" HorizontalAlignment="Center" Content="Password"/>
                         </Border>
                         <TextBox FontSize="17" Margin="10" Text="{Binding Pass, UpdateSourceTrigger=PropertyChanged}" Width="232" Height="31" />
                     </StackPanel>

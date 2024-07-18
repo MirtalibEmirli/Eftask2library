@@ -11,6 +11,8 @@ namespace Eftask2.Models
         public int Term { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string Mail { get; set; }
+        public string Password { get; set; }
         public List<S_Cards> S_Cards { get; set; }
 
     }
