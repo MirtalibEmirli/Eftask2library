@@ -33,9 +33,10 @@
 
             
         </Border>
-        <StackPanel Height="150" Width="150">
+        <StackPanel Height="250" Width="150">
             <Button Background="Transparent" Margin="10" Height="50" x:Name="SignIn" Content="SignIn" Click="SignIn_Click"/>
             <Button Background="Transparent" Margin="10" Height="50" x:Name="SignUp" Content="SignUp" Click="SignUp_Click"/>
+            <Button Background="Transparent" Margin="10" Height="50" x:Name="Back" Content="Back" Click="Back_Click"  />
             
         </StackPanel>
     </Grid>

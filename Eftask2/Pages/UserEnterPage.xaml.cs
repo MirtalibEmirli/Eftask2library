@@ -15,9 +15,7 @@ using System.Windows.Shapes;
 
 namespace Eftask2.Pages
 {
-    /// <summary>
-    /// Interaction logic for UserEnterPage.xaml
-    /// </summary>
+   
     public partial class UserEnterPage : Page
     {
         public UserEnterPage()
@@ -32,7 +30,12 @@ namespace Eftask2.Pages
 
         private void SignIn_Click(object sender, RoutedEventArgs e)
         {
+            NavigationService.Navigate(new SignInPage());
+        }
 
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
     }
 }

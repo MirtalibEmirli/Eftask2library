@@ -29,9 +29,17 @@ namespace Eftask2.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //data seeding
             modelBuilder.Entity<Author>().HasData(
                    new Author { Id = 14, Name = "Ahmet Ümit" ,LastName="Suleyman" },
         new Author { Id = 15, Name = "Elif Şafak", LastName = "Suleyman" }
+                );
+            modelBuilder.Entity<Student>().HasData(
+                new Student
+                {Id=1, FirstName="Ali",LastName="Alish",Term=2,Mail="m1ul21810@gmail.com",Password="1212"   },
+                new Student
+                { Id = 2, FirstName = "Kamal", LastName = "Vushu", Term = 3, Mail = "m1ul21810@gmail.com", Password = "1214" }
+
                 );
             modelBuilder.Entity<Author>()
                 .HasMany(e => e.Books)
