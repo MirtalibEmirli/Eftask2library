@@ -69,6 +69,11 @@ namespace Eftask2.Pages
                     return;
                 }
 
+                if (book.Quantity == 0)
+                {
+                    MessageBox.Show("We havent this book for now");
+                    return;
+                }
                 var lib = Librarians.SelectedItem as Librarian;
                 if (lib == null)
                 {

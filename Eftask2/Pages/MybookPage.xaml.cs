@@ -80,5 +80,19 @@ namespace Eftask2.Pages
         {
             NavigationService.GoBack();
         }
+
+        private void Return_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var book = booksview.SelectedItem as Book;
+                Books.Remove(book);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+             }
+        }
     }
 }

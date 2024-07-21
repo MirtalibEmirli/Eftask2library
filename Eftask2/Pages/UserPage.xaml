@@ -19,7 +19,6 @@
 
             <Button Background="Transparent"  Name="allbookbutton"  Foreground ="Black" Height="50"   Width="120" Click="allbookbutton_Click_1"         >AllBooks</Button>
             <Button Background="Transparent" Name="Getbookbutton" Foreground ="Black" Height="50"  Width="120" Click="Getbookbutton_Click"   >Get a book</Button>
-            <Button Background="Transparent" Name="ReturnButton" Foreground ="Black" Height="50"   Width="120" Click="ReturnButton_Click"  >Return a book</Button>
             <Button Background="Transparent" Name="Mybookbutton" Foreground ="Black" Height="50"   Width="120" Click="Mybookbutton_Click"   >My Books</Button>
             <Button Background="Transparent"     Content="Back" Foreground ="Black" Width="157" Height="34" FontSize="17"   Name="Back" Click="Back_Click_1"  />
         </StackPanel>
