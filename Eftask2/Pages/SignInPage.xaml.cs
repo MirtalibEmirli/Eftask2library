@@ -12,13 +12,7 @@ namespace Eftask2.Pages
     {
         private LibraryDbcontext dbcontext;
 
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
+        
         private Student student;
         public Student Student
         {
@@ -38,12 +32,16 @@ namespace Eftask2.Pages
         {
             try
             {
+
                 var students = dbcontext.Students.ToList();
                 foreach (var item in students)
                 {
                     if (item.FirstName == Student.FirstName && item.Password == Student.Password)
                     {
                         MessageBox.Show("Successfully Logged In");
+                        NavigationService.Navigate(new UserPage(item.Id));
+                        Student = new Student();
+                        return;
                     }
                 }
             }
@@ -57,5 +55,12 @@ namespace Eftask2.Pages
         {
             NavigationService.GoBack();
         }
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
     }
 }
