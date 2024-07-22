@@ -13,7 +13,7 @@ namespace Eftask2.Pages
     public partial class MybookPage : Page, INotifyPropertyChanged
     {
         private LibraryDbcontext dbcontext;
-        int ID;
+        private int ID;
         private ObservableCollection<Book> books;
 
         public ObservableCollection<Book> Books
@@ -35,39 +35,32 @@ namespace Eftask2.Pages
         {
             InitializeComponent();
             ID = id;
-            DataContext = this;
             dbcontext = new LibraryDbcontext();
             Books = new ObservableCollection<Book>();
+            DataContext = this;
             LoadData();
         }
 
-        void LoadData()
+        private void LoadData()
         {
             try
             {
-            
-                Books = new ObservableCollection<Book>();
- 
-                var books = dbcontext.S_Cards
+                Books.Clear();
+                var booksList = dbcontext.S_Cards
                     .Where(sc => sc.Id_Student == ID)
                     .Select(sc => sc.Book)
                     .ToList();
 
-          
-                foreach (var book in books)
+                foreach (var book in booksList)
                 {
                     Books.Add(book);
                 }
-
-              
-                OnPropertyChanged(nameof(Books));
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show($"Error loading data: {ex.Message}");
             }
         }
-
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -76,7 +69,7 @@ namespace Eftask2.Pages
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        private void Back_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void Back_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
         }
@@ -85,14 +78,24 @@ namespace Eftask2.Pages
         {
             try
             {
-                var book = booksview.SelectedItem as Book;
-                Books.Remove(book);
-
+                var selectedBook = booksview.SelectedItem as Book;
+                if (selectedBook != null)
+                {
+                    Books.Remove(selectedBook);
+                    var sCardToReturn = dbcontext.S_Cards.Single(sc => sc.Id_Student == ID && sc.Id_Book == selectedBook.Id);
+                    sCardToReturn.DateIn = DateOnly.FromDateTime(DateTime.Now);
+                    dbcontext.S_Cards.Update(sCardToReturn);
+                    dbcontext.SaveChanges();
+                }
+                else
+                {
+                    MessageBox.Show("No book selected.");
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-             }
+                MessageBox.Show($"Error returning book: {ex.Message}");
+            }
         }
     }
 }

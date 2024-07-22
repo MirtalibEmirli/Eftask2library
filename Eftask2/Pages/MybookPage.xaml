@@ -50,7 +50,7 @@
         </Border>
 
         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" Margin="10">
-            <Button Background="Transparent" Name="Return" Margin="10" Height="24" Width="150" Foreground="Black" Click="Return_Click"  >Return</Button>
+            <Button Background="Transparent" Name="Return" Margin="10" Height="24" Width="150" Foreground="Black" Click="Return_Click">Return</Button>
             <Button Background="Transparent" Name="Back" Margin="10" Height="24" Width="150" Foreground="Black" Click="Back_Click">Back</Button>
         </StackPanel>
     </Grid>

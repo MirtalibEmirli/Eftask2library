@@ -108,9 +108,9 @@ namespace Eftask2.Pages
         {
             try
             {
-                if (!string.IsNullOrWhiteSpace(Mail.Text   )&& EmailRegex.IsMatch(Mail.Text)) ;
+                if (!string.IsNullOrWhiteSpace(Mail.Text )&& EmailRegex.IsMatch(Mail.Text)) ;
                 {
-                    MessageBox.Show(msg.ToString());
+                   
                     string senderEmail = "mirtalibemirli498@gmail.com";
                     string senderPassword = "aytndmgzqcukvmds";
                     string recipientEmail = Mail.Text;
