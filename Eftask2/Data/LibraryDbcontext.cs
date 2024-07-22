@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 using System.Data;
+using Eftask2.Configurations;
 namespace Eftask2.Data
 {
     public class LibraryDbcontext : DbContext
@@ -29,7 +30,12 @@ namespace Eftask2.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //data seeding
+            //data seeding,
+            modelBuilder.Entity<Admin>().HasData(
+                new Admin { Password="admin",
+                  userName="admin",
+                Id=1}
+                );
             modelBuilder.Entity<Author>().HasData(
                    new Author { Id = 14, Name = "Ahmet Ümit" ,LastName="Suleyman" },
         new Author { Id = 15, Name = "Elif Şafak", LastName = "Suleyman" }
@@ -41,6 +47,7 @@ namespace Eftask2.Data
                 { Id = 2, FirstName = "Kamal", LastName = "Vushu", Term = 3, Mail = "m1ul21810@gmail.com", Password = "1214" }
 
                 );
+            modelBuilder.ApplyConfiguration(new StudentConfiguration());
             modelBuilder.Entity<Author>()
                 .HasMany(e => e.Books)
                 .WithOne(b => b.Author)

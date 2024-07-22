@@ -1,6 +1,7 @@
 ﻿using Eftask2.Data;
 using Eftask2.Models;
 using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -12,7 +13,7 @@ namespace Eftask2.Pages
     public partial class MainPage : Page, INotifyPropertyChanged
     {
         private LibraryDbcontext _context;
-        private Admin _admin;
+        private ObservableCollection< Admin> admins;
         private string _username;
         private string _pass;
 
@@ -38,12 +39,14 @@ namespace Eftask2.Pages
 
         public MainPage()
         {
-            InitializeComponent();
-            _context = new LibraryDbcontext();
-            DataContext = this;
             try
             {
-                _admin = _context.Admins.FirstOrDefault() ?? throw new Exception("No admin found in the database.");
+
+                InitializeComponent();
+            _context = new LibraryDbcontext();
+            admins = new ObservableCollection<Admin>(_context.Admins.ToList());
+            DataContext = this;
+                 
             }
             catch (Exception ex)
             {
@@ -68,17 +71,25 @@ namespace Eftask2.Pages
 
             try
             {
-                if (_username == _admin?.userName && _pass == _admin?.Password)
+                bool isfound = false;
+                foreach (var item in admins)
                 {
-                    MessageBox.Show("Login successful", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-                    NavigationService.Navigate(new FirstPage());
-
+                    if (_username == item.userName && _pass == item?.Password)
+                    {
+                        MessageBox.Show("Login successful", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                        NavigationService.Navigate(new FirstPage());
+                        isfound = true;
+                        return;
+                    }
+ 
                 }
-                else
+                if (!isfound)
                 {
-                    MessageBox.Show("Login Invalid");
-
+                    MessageBox.Show("Admin not found");
                 }
+
+                
+                 
             }
             catch (Exception ex)
             {
